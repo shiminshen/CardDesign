@@ -2,13 +2,18 @@
 
 import React from 'react';
 
+import Attribute from './AttributeComponent.js';
+
 require('styles/card/AttributeList.styl');
 
 class AttributeListComponent extends React.Component {
   render() {
     return (
-      <div className="attributelist-component">
-        Please edit src/components/card//AttributeListComponent.js to update this component!
+      <div className="attributelist-component row">
+        <Attribute/>
+        <Attribute/>
+        <Attribute/>
+        <Attribute/>
       </div>
     );
   }
