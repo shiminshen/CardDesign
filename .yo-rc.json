@@ -1,0 +1,7 @@
+{
+  "generator-react-webpack": {
+    "appName": "cardDesign",
+    "style": "stylus",
+    "postcss": false
+  }
+}
