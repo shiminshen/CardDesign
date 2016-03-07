@@ -8,7 +8,7 @@ class BasicInfoComponent extends React.Component {
   render() {
     return (
       <div className="basicinfo-component row">
-        name
+        <h4>Name: Shi Min Shen</h4>
       </div>
     );
   }

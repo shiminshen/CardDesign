@@ -8,12 +8,14 @@ require('styles/card/AttributeList.styl');
 
 class AttributeListComponent extends React.Component {
   render() {
+
+    const categoryList = [ 'Apperance', 'Personality', 'Relationship', 'Job', 'Learning Experience' ];
+
     return (
       <div className="attributelist-component row">
-        <Attribute/>
-        <Attribute/>
-        <Attribute/>
-        <Attribute/>
+        {categoryList.map((cate, i) =>
+          <Attribute key={i} name={cate}/>)
+        }
       </div>
     );
   }

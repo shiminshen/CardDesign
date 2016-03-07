@@ -6,9 +6,12 @@ require('styles/card/Attribute.styl');
 
 class AttributeComponent extends React.Component {
   render() {
+
+    const {name} = this.props;
+
     return (
       <div className="attribute-component">
-        Please edit src/components/card//AttributeComponent.js to update this component!
+        <h4>{name}</h4>
       </div>
     );
   }
