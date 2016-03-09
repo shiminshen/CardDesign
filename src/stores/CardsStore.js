@@ -6,7 +6,10 @@ export class CardsStore {
     this.cards = [
       {
         Apperance: {
-          eye: 3,
+          eye: {
+            color: 2,
+            size: 5
+          },
           nose: 5,
           mouse: 2
         },
