@@ -4,24 +4,21 @@ import React from 'react';
 
 import AttributeList from './AttributeListComponent.js';
 import BasicInfo from './BasicInfoComponent.js';
-import CardsStore from '../../stores/CardsStore.js';
 
 require('styles/card/ProfileCard.styl');
 require('bootstrap/dist/css/bootstrap.min.css');
 
 class ProfileCardComponent extends React.Component {
-  constructor() {
-    super();
-    this.state = CardsStore.getState();
-  }
-
   render() {
-    console.log(this.state);
+
+    const {card} = this.props;
 
     return (
-      <div className="profilecard-component col-md-4 col-md-offset-4">
+      <div className="profilecard-component col-md-4 col-md-offset-1">
         <BasicInfo/>
-        <AttributeList/>
+        <div className='row'>
+          <AttributeList card={card}/>
+        </div>
       </div>
     );
   }

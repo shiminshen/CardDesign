@@ -3,13 +3,13 @@ require('styles/App.css');
 
 import React from 'react';
 
-import ProfileCard from './card/ProfileCardComponent.js';
+import CardList from './card/CardListComponent.js';
 
 class AppComponent extends React.Component {
   render() {
     return (
       <div className="index">
-        <ProfileCard/>
+        <CardList/>
       </div>
     );
   }

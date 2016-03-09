@@ -9,12 +9,18 @@ require('styles/card/AttributeList.styl');
 class AttributeListComponent extends React.Component {
   render() {
 
-    const categoryList = [ 'Apperance', 'Personality', 'Relationship', 'Job', 'Learning Experience' ];
-
+    const {card} = this.props;
+    
+    // construct nest attribute list.
     return (
-      <div className="attributelist-component row">
-        {categoryList.map((cate, i) =>
-          <Attribute key={i} name={cate}/>)
+      <div className="attributelist-component">
+        {Object.keys(card).map((attr) =>
+        typeof(card[attr]) == 'object' ?
+        <div key={attr}>
+          <Attribute name={attr}/>
+          <AttributeListComponent card={card[attr]}/>
+        </div>
+        : <Attribute key={attr} name={attr}/>)
         }
       </div>
     );
