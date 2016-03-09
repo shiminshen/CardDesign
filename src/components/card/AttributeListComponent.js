@@ -1,6 +1,7 @@
 'use strict';
 
 import React from 'react';
+import classNames from 'classnames';
 
 import Attribute from './AttributeComponent.js';
 
@@ -18,6 +19,7 @@ class AttributeListComponent extends React.Component {
   }
 
   handleClick = (attr) => {
+    console.log(this.state);
 
     this.setState({
       ...this.state,
@@ -29,20 +31,29 @@ class AttributeListComponent extends React.Component {
   render() {
 
     const {card} = this.props;
+
+    let listComponents = Object.keys(card).map((attr) => {
+
+      let nestClass = classNames({
+        'nest-list': !this.state[attr]
+      })
+
+      return typeof(card[attr]) == 'object' ?
+        <div key={attr} >
+          <div onClick={this.handleClick.bind(this, attr)}>
+            <Attribute name={attr}/>
+          </div>
+          <div className={nestClass}>
+            <AttributeListComponent card={card[attr]}/>
+          </div>
+        </div>
+          : <Attribute key={attr} name={attr}/>
+            });
     
     // construct nest attribute list.
     return (
       <div className="attributelist-component">
-        {Object.keys(card).map((attr) =>
-        typeof(card[attr]) == 'object' ?
-        <div key={attr} onClick={this.handleClick.bind(this, attr)}>
-          <Attribute name={attr}/>
-          <div className={this.state[attr] ? '' : 'nest-list'}>
-            <AttributeListComponent card={card[attr]}/>
-          </div>
-        </div>
-        : <Attribute key={attr} name={attr}/>)
-        }
+        {listComponents}
       </div>
     );
   }
